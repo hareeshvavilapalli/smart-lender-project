@@ -1,4 +1,6 @@
 Flask==3.0.3
-numpy
-scikit-learn
 gunicorn
+numpy
+pandas
+scikit-learn==1.5.1
+joblib

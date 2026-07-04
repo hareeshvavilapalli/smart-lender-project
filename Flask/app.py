@@ -1,13 +1,16 @@
 from flask import Flask, render_template, request
-import pickle
 import os
+import pickle
 import numpy as np
 
 app = Flask(__name__)
 
-# Load trained model
-model_path = os.path.join(os.path.dirname(__file__), "loan_model.pkl")
-model = pickle.load(open(model_path, "rb"))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "loan_model.pkl")
+
+with open(MODEL_PATH, "rb") as model_file:
+    model = pickle.load(model_file)
+
 
 @app.route('/')
 def home():
@@ -21,25 +24,24 @@ def form():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    name = request.form.get("Name", "")
+    email = request.form.get("Email", "")
+    phone = request.form.get("Phone", "")
 
-    name = request.form["Name"]
-    email = request.form["Email"]
-    phone = request.form["Phone"]
+    gender = request.form.get("Gender", "")
+    married = request.form.get("Married", "")
+    dependents = request.form.get("Dependents", "0")
+    education = request.form.get("Education", "")
+    self_employed = request.form.get("Self_Employed", "")
 
-    gender = request.form["Gender"]
-    married = request.form["Married"]
-    dependents = request.form["Dependents"]
-    education = request.form["Education"]
-    self_employed = request.form["Self_Employed"]
+    applicant_income = request.form.get("ApplicantIncome", "0")
+    coapplicant_income = request.form.get("CoapplicantIncome", "0")
 
-    applicant_income = request.form["ApplicantIncome"]
-    coapplicant_income = request.form["CoapplicantIncome"]
+    loan_amount = request.form.get("LoanAmount", "0")
+    loan_amount_term = request.form.get("Loan_Amount_Term", "0")
 
-    loan_amount = request.form["LoanAmount"]
-    loan_amount_term = request.form["Loan_Amount_Term"]
-
-    credit_history = request.form["Credit_History"]
-    property_area = request.form["Property_Area"]
+    credit_history = request.form.get("Credit_History", "0")
+    property_area = request.form.get("Property_Area", "Rural")
 
     features = np.array([[
         1 if gender == "Male" else 0,
@@ -78,4 +80,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))

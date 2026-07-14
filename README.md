@@ -12,8 +12,9 @@ The system provides fast and reliable predictions through a clean, responsive, a
 
 **Deployment Link:**  
 https://acurate.onrender.com/
+---
 **Demo Video Link:**  
-https://drive.google.com/file/d/your-demo-video-id/view
+https://drive.google.com/file/d/1IdBb9YjMi8jkgLprV6cKjuKhXx7vvuIp/view?usp=sharing
 
 ---
 

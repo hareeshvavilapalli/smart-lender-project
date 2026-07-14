@@ -4,6 +4,8 @@
 Smart Lender is a Machine Learning-based loan approval prediction web application built using Flask. The application helps determine whether a loan applicant is likely to get loan approval based on financial and demographic details such as income, credit history, loan amount, education, and marital status.
 
 This system provides fast predictions through a clean and user-friendly interface, helping streamline loan eligibility screening.
+Deployment Link:https://acurate.onrender.com
+Demo Link:https://drive.google.com/file/d/1IdBb9YjMi8jkgLprV6cKjuKhXx7vvuIp/view?usp=sharing
 
 ---
 

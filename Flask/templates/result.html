@@ -39,8 +39,9 @@
             </div>
             <div>
                 <p class="hero-eyebrow">Application Status</p>
-                <h1>Loan Approved</h1>
+                <h1>{{ prediction_text }}</h1>
                 <p>Congratulations, {{ name }}! Your profile aligns well with the eligibility model.</p>
+                <p class="metric-pill"><strong>Model confidence:</strong> {{ "%.2f"|format(prediction_prob * 100) }}%</p>
             </div>
             {% else %}
             <div class="result-banner__icon review-icon">
@@ -48,8 +49,9 @@
             </div>
             <div>
                 <p class="hero-eyebrow">Application Status</p>
-                <h1>Loan Not Approved</h1>
+                <h1>{{ prediction_text }}</h1>
                 <p>Thank you, {{ name }}. The current profile does not meet the approval criteria.</p>
+                <p class="metric-pill"><strong>Model confidence:</strong> {{ "%.2f"|format(prediction_prob * 100) }}%</p>
             </div>
             {% endif %}
         </section>

@@ -11,11 +11,10 @@ The system provides fast and reliable predictions through a clean, responsive, a
 ## Project Links 🔗
 
 **Deployment Link:**  
-https://your-render-app.onrender.com
-
+(https://acurate.onrender.com/)
 **Demo Video Link:**  
-https://drive.google.com/file/d/your-demo-video-id/view
-
+[https://drive.google.com/file/d/your-demo-video-id/view
+](https://acurate.onrender.com/)
 ---
 
 ## Features 🚀
